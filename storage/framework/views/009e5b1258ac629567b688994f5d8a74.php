@@ -73,6 +73,27 @@
         </div>
     </div>
 
+    <?php if (isset($component)) { $__componentOriginal662fac80dd7ea9f5f1f2fae88b808dd2 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal662fac80dd7ea9f5f1f2fae88b808dd2 = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.chatbot','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component->withName('chatbot'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
+<?php $attributes = $attributes->except(\Illuminate\View\AnonymousComponent::ignoredParameterNames()); ?>
+<?php endif; ?>
+<?php $component->withAttributes([]); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal662fac80dd7ea9f5f1f2fae88b808dd2)): ?>
+<?php $attributes = $__attributesOriginal662fac80dd7ea9f5f1f2fae88b808dd2; ?>
+<?php unset($__attributesOriginal662fac80dd7ea9f5f1f2fae88b808dd2); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal662fac80dd7ea9f5f1f2fae88b808dd2)): ?>
+<?php $component = $__componentOriginal662fac80dd7ea9f5f1f2fae88b808dd2; ?>
+<?php unset($__componentOriginal662fac80dd7ea9f5f1f2fae88b808dd2); ?>
+<?php endif; ?>
+
     <div class="fixed inset-0 z-40 bg-slate-950/60 lg:hidden" x-cloak x-show="mobileNav" x-transition.opacity>
         <div class="absolute left-0 top-0 h-full w-80 max-w-[85vw] bg-white px-5 py-6 shadow-2xl dark:bg-slate-950">
             <div class="mb-6 flex items-center justify-between">

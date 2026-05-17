@@ -23,5 +23,7 @@
             </div>
         </div>
     </div>
+
+    <x-chatbot title="Bhojpuri Help" greeting="नमस्ते! हमार Bhojpuri helper ह। Login, register, भा league बारे में पूछीं।" />
 </body>
 </html>

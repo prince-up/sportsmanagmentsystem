@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome');
 
+Route::get('/public/teams/{team}', [TeamController::class, 'show'])->name('public.teams.show');
+Route::get('/public/players/{player}', [PlayerController::class, 'show'])->name('public.players.show');
+Route::get('/public/matches/{match}', [MatchController::class, 'show'])->name('public.matches.show');
+
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
 

@@ -47,6 +47,15 @@ class MatchController extends Controller
         return redirect()->route('matches.index')->with('success', 'Match scheduled successfully.');
     }
 
+    public function show(Request $request, MatchModel $match): View
+    {
+        $match->load(['season', 'venue', 'homeTeam.players', 'awayTeam.players', 'mvpPlayer', 'votes.player']);
+
+        $view = $request->routeIs('public.*') ? 'public.matches.show' : 'matches.show';
+
+        return view($view, compact('match'));
+    }
+
     public function update(MatchRequest $request, MatchModel $match): RedirectResponse
     {
         $match->update($request->validated());

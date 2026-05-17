@@ -72,6 +72,8 @@
         </div>
     </div>
 
+    <x-chatbot />
+
     <div class="fixed inset-0 z-40 bg-slate-950/60 lg:hidden" x-cloak x-show="mobileNav" x-transition.opacity>
         <div class="absolute left-0 top-0 h-full w-80 max-w-[85vw] bg-white px-5 py-6 shadow-2xl dark:bg-slate-950">
             <div class="mb-6 flex items-center justify-between">

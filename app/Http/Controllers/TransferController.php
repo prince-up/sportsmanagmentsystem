@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\TransferLogged;
 use App\Http\Requests\TransferRequest;
 use App\Models\Transfer;
 use Illuminate\Http\RedirectResponse;
@@ -19,7 +20,10 @@ class TransferController extends Controller
 
     public function store(TransferRequest $request): RedirectResponse
     {
-        Transfer::query()->create($request->validated());
+        $transfer = Transfer::query()->create($request->validated());
+        $transfer->load(['player', 'fromTeam', 'toTeam']);
+
+        event(new TransferLogged($transfer));
 
         return back()->with('success', 'Transfer recorded successfully.');
     }
@@ -27,6 +31,9 @@ class TransferController extends Controller
     public function update(TransferRequest $request, Transfer $transfer): RedirectResponse
     {
         $transfer->update($request->validated());
+        $transfer->load(['player', 'fromTeam', 'toTeam']);
+
+        event(new TransferLogged($transfer));
 
         return back()->with('success', 'Transfer updated successfully.');
     }

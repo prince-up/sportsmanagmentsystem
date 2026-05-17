@@ -42,6 +42,15 @@ class PlayerController extends Controller
         ]);
     }
 
+    public function show(Request $request, Player $player): View
+    {
+        $player->load(['team', 'season', 'injuries', 'transferHistory']);
+
+        $view = $request->routeIs('public.*') ? 'public.players.show' : 'players.show';
+
+        return view($view, compact('player'));
+    }
+
     public function store(PlayerRequest $request): RedirectResponse
     {
         $data = $request->validated();

@@ -43,11 +43,13 @@ class TeamController extends Controller
         ]);
     }
 
-    public function show(Team $team): View
+    public function show(Request $request, Team $team): View
     {
         $team->load(['season', 'players', 'homeMatches', 'awayMatches']);
 
-        return view('teams.show', compact('team'));
+        $view = $request->routeIs('public.*') ? 'public.teams.show' : 'teams.show';
+
+        return view($view, compact('team'));
     }
 
     public function qr(Team $team): Response

@@ -39,6 +39,11 @@ class Player extends Model
         'rating' => 'decimal:1',
     ];
 
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
+
     public function team(): BelongsTo
     {
         return $this->belongsTo(Team::class);
