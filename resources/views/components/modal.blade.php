@@ -1,6 +1,6 @@
 @props([
-	'id',
-	'title',
+    'id',
+    'title',
 ])
 
 <div x-cloak x-show="open" x-transition.opacity class="fixed inset-0 z-50 flex items-center justify-center px-4 py-6">
